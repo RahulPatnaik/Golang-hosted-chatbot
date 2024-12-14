@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Interface</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f4f4f9;
+    }
+    .chat-container {
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .response {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <h2>Chat with the Bot</h2>
+    <textarea id="userInput" placeholder="Type your message here..."></textarea>
+    <button id="sendButton">Send</button>
+    <div class="response" id="response"></div>
+  </div>
+
+  <script>
+    document.getElementById('sendButton').addEventListener('click', async () => {
+      const userInput = document.getElementById('userInput').value;
+      const responseDiv = document.getElementById('response');
+
+      // Clear response div
+      responseDiv.textContent = "Loading...";
+
+      // Make POST request to the Go server
+      const response = await fetch('/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user_input: userInput }),
+      });
+
+      // Handle response
+      if (response.ok) {
+        const data = await response.json();
+        responseDiv.textContent = `Bot: ${data.response}`;
+      } else {
+        responseDiv.textContent = "Error: Unable to fetch response.";
+      }
+    });
+  </script>
+</body>
+</html>
