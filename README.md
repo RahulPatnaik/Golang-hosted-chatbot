@@ -5,16 +5,13 @@ This project is a simple web-based chatbot hosted using Gin in Golang. It commun
 
 Project Structure
 -----------------
+```php
 
-php
-
-Copy code
-
-`├── main.go                  # Golang server with Gin framework
+├── main.go                  # Golang server with Gin framework
 ├── static/                  # Static files (HTML, CSS, JS)
 │   ├── index.html           # HTML file for frontend interface
 ├── .gitignore               # Files to be ignored by Git`
-
+```
 Features
 --------
 
@@ -29,13 +26,10 @@ Setup
 
 First, clone the repository to your local machine:
 
-bash
-
-Copy code
-
-`git clone https://github.com/yourusername/your-repository.git
-cd your-repository`
-
+```bash
+git clone https://github.com/RahulPatnaik/Golang-hosted-chatbot
+cd Golang-hosted-chatbot
+```
 ### 2\. Install Golang
 
 Make sure that Go is installed on your system. If not, you can download it from the official Go website: <https://golang.org/dl/>
@@ -48,11 +42,7 @@ The chatbot requires a Python backend running on port `8000` (or whichever port 
 
 2.  Run the Python backend:
 
-    bash
-
-    Copy code
-
-    `python app.py  # or the appropriate command to run your Python server`
+    ```python app.py  # or the appropriate command to run your Python server```
 
 Ensure that the Python backend is running on `http://127.0.0.1:8000` (or adjust the URL in `main.go` if needed).
 
@@ -88,23 +78,6 @@ bash
 Copy code
 
 `go run main.go`
-
-### Add and Commit Changes
-
-bash
-
-Copy code
-
-`git add .
-git commit -m "Your commit message"`
-
-### Push to Remote Repository
-
-bash
-
-Copy code
-
-`git push origin main  # or master depending on your default branch`
 
 Notes
 -----
