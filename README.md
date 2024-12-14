@@ -42,7 +42,9 @@ The chatbot requires a Python backend running on port `8000` (or whichever port 
 
 2.  Run the Python backend:
 
-    ```python app.py  # or the appropriate command to run your Python server```
+    ```
+    python app.py  # or the appropriate command to run your Python server
+    ```
 
 Ensure that the Python backend is running on `http://127.0.0.1:8000` (or adjust the URL in `main.go` if needed).
 
@@ -54,11 +56,15 @@ bash
 
 Copy code
 
-```go run main.go```
+```
+go run main.go
+```
 
 This will start the server on port `8080` (or whichever port you set). You can now access the chatbot via:
 
-```http://127.0.0.1:8080```
+```
+http://127.0.0.1:8080
+```
 
 ### 5\. Interact with the Chatbot
 
@@ -68,12 +74,9 @@ Commands Overview
 -----------------
 
 ### Run Golang Server
-
-bash
-
-Copy code
-
-`go run main.go`
+```
+go run main.go
+```
 
 Notes
 -----
